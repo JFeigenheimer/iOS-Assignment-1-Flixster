@@ -36,7 +36,7 @@ class MovieGridViewController: UIViewController, UICollectionViewDataSource, UIC
                     // TODO: Reload your table view data
                 self.movies = dataDictionary["results"] as! [[String:Any]]
                 
-                //self.tableView.reloadData() // Calls the functions again.
+                self.collectionView.reloadData() // Calls the functions again after the initialization.
                 print(self.movies)
                 
              }
