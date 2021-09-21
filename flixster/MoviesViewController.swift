@@ -69,15 +69,26 @@ class MoviesViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        // Tasks are:
+        // 1. Find the selected movie
+        let cell = sender as! UITableViewCell  // Cell that was tapped on
+        let indexPath = tableView.indexPath(for: cell)! // path for that cell
+        let movie = movies[indexPath.row] // access the array for that path.
+        // 2. Pass the selected movie to the details view controller.
+        let detailsViewController = segue.destination as! MovieDetailsViewController
+        detailsViewController.movie = movie
+        
+        tableView.deselectRow(at: indexPath, animated:true) // stops the highlighting for cell
     }
-     
+    /*
     // Notes for Flix part 1:
      To design to create arbitrary custom cell
      design cell
